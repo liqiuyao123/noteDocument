@@ -15,3 +15,52 @@ webpack 是一个 JavaScript 应用程序的静态模块打包器(module bundler
 * 解析规则（loader）
 * 插件（plugins）
 * devServer
+
+## 安装
+npm install webpack webpack-cli -g 
+或者
+yarn global add webpack webpack-cli
+然后就可以全局执行命令了
+webpack-cli 是使用 webpack 的命令行工具，在 4.x 版本之后不再作为 webpack 的依赖了，我们使用时需要单独安装这个工具。
+
+## 入口 entry
+入口起点(entry point)指示 webpack 应该使用哪个模块，来作为构建其内部依赖图的开始。进入入口起点后，webpack 会找出有哪些模块和库是入口起点（直接和间接）依赖的。
+语法：
+entry: string | [string] | object { <key>: string | [string] } | (function: () => string | [string] | object { <key>: string | [string] })
+传递一个字符串代表一个入口
+传递数组{Array}或者对象{Object}，代表一个或者多个入口
+
+示例
+`
+  module.exports = {
+    entry: 'app.js'
+  }
+`
+或者
+```
+  module.exports = {
+    entry: {
+      app: 'app.js'
+    }
+  } 
+```
+
+## 出口（output）
+所有构建目标的输出位置
+语法：
+```
+output: {
+  path: path.reslove(__dirname, 'dist'), // output目录对应一个绝对路径
+  publicPath: '/', 此输出目录对应公开的URL
+  filename: 'js/bundle.js' // 对应js输出位置，以及bundle后文件名
+  chunkFilename: '[id].[hash].js' // 对应使用懒加载模块的输出名称
+}
+```
+### filename中的模板标识符
+* [name] 模块名称 如果在入口指定名称，那么name就是指定的名称，如果没有指定就是main
+* [hash] 模块标识符的hash sauidashudhi2137128hqisdihqq 唯一版本标识 [hash:6] 取6位
+* [id] 模块的id值
+* [ext] 对应文件后缀
+
+
+
