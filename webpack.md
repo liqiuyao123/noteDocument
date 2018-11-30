@@ -31,11 +31,11 @@ entry: string | [string] | object { <key>: string | [string] } | (function: () =
 传递数组{Array}或者对象{Object}，代表一个或者多个入口
 
 示例
-`
+```
   module.exports = {
     entry: 'app.js'
   }
-`
+```
 或者
 ```
   module.exports = {
@@ -51,7 +51,7 @@ entry: string | [string] | object { <key>: string | [string] } | (function: () =
 ```
 output: {
   path: path.reslove(__dirname, 'dist'), // output目录对应一个绝对路径
-  publicPath: '/', 此输出目录对应公开的URL
+  publicPath: '/', // 此输出目录对应公开的URL
   filename: 'js/bundle.js' // 对应js输出位置，以及bundle后文件名
   chunkFilename: '[id].[hash].js' // 对应使用懒加载模块的输出名称
 }
