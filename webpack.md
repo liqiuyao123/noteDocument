@@ -17,9 +17,13 @@ webpack 是一个 JavaScript 应用程序的静态模块打包器(module bundler
 * devServer
 
 ## 安装
+```
 npm install webpack webpack-cli -g 
+```
 或者
+```
 yarn global add webpack webpack-cli
+```
 然后就可以全局执行命令了
 webpack-cli 是使用 webpack 的命令行工具，在 4.x 版本之后不再作为 webpack 的依赖了，我们使用时需要单独安装这个工具。
 
